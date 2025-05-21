@@ -1,8 +1,9 @@
 ﻿using EmployeesApp.Web.Models;
+using EmployeesApp.Web.Services.Interfaces;
 
 namespace EmployeesApp.Web.Services
 {
-    public class EmployeeService
+    public class EmployeeService : IEmployeeService
     {
         readonly List<Employee> employees =
         [
