@@ -12,7 +12,7 @@ namespace EmployeesApp.Web.Controllers
     {
         public override void OnActionExecuted(ActionExecutedContext context)
         {
-            logger.LogInformation("Action is about to be executed");
+            logger.LogInformation (context.ActionDescriptor.DisplayName + "Action is about to be executed");
         }
 
         public override void OnActionExecuting(ActionExecutingContext context)
