@@ -8,8 +8,14 @@ namespace EmployeesApp.Web
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            builder.Services.AddControllersWithViews();
-            builder.Services.AddSingleton<IEmployeeService, OtherEmployeeService>();
+
+            builder.Services.AddSingleton<IEmployeeService, EmployeeService>();
+
+            builder.Services.AddControllersWithViews(options =>
+            {
+                options.Filters.Add<LoggingFilter>();
+            });
+
             var app = builder.Build();
             app.UseStaticFiles();
             app.MapControllers();
